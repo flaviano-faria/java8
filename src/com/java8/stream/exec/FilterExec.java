@@ -11,5 +11,6 @@ public class FilterExec {
 		service.getAboveYear(1990);
 		
 		service.getAllCars();
+		service.getYearByModel();
 	}
 }
