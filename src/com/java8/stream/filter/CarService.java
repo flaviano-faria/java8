@@ -28,4 +28,23 @@ public class CarService {
 		
 		carAdapter.getCarList().stream().forEach(e -> System.out.println(((Car) e).getModel()));
 	}
+	
+	public void getYearByModel() {
+		
+		CarAdapterImpl carAdapterImpl = new CarAdapterImpl();
+		ICarAdapter carAdapter = new CarAdapter(carAdapterImpl);
+		String model = "ferrari F40";
+		ArrayList filteredList = (ArrayList) carAdapter.getCarList().stream().filter(e -> ((Car) e).getModel().equals(model)).collect(Collectors.toList());
+		filteredList.stream().forEach(e -> System.out.println(((Car) e).getYear()));
+	}
+	
+	public boolean isOverthan(String x, String y) {
+		return x.length() > y.length();
+	}
+	
+	public boolean isGreatherThan() {
+		String x = "abcd";
+		String y = "ab";
+		return isOverthan(x, y);
+	}
 }
