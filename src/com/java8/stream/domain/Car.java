@@ -1,6 +1,8 @@
 package com.java8.stream.domain;
 
-public class Car {
+import java.util.Objects;
+
+public class Car implements Comparable<Car>{
 	
 	private String model;
 	private int year;
@@ -30,6 +32,31 @@ public class Car {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
+
+	@Override
+	public int compareTo(Car o) {
+		if(this.getModel().equalsIgnoreCase(o.getModel())) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(model);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		return Objects.equals(model, other.model);
+	}
 
 }

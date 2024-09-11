@@ -1,6 +1,7 @@
 package com.java8.stream.filter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,6 +37,13 @@ public class CarService {
 		String model = "ferrari F40";
 		ArrayList filteredList = (ArrayList) carAdapter.getCarList().stream().filter(e -> ((Car) e).getModel().equals(model)).collect(Collectors.toList());
 		filteredList.stream().forEach(e -> System.out.println(((Car) e).getYear()));
+	}
+	
+	public void getDistinctCar() {
+		CarAdapterImpl carAdapterImpl = new CarAdapterImpl();
+		ICarAdapter carAdapter = new CarAdapter(carAdapterImpl);
+		HashSet filteredList = (HashSet) carAdapter.getCarList().stream().distinct().collect(Collectors.toSet());
+		filteredList.stream().forEach(e -> System.out.println("distinct:\n"+((Car)e).getModel()+" "+((Car) e).getYear()));
 	}
 	
 	public boolean isOverthan(String x, String y) {

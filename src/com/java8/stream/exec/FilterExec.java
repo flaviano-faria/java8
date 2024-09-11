@@ -12,5 +12,6 @@ public class FilterExec {
 		
 		service.getAllCars();
 		service.getYearByModel();
+		service.getDistinctCar();
 	}
 }
